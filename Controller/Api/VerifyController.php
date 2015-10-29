@@ -38,8 +38,7 @@ class VerifyController extends Controller
             ];
         }
 
-        $user = $this->getDoctrine()->getRepository('OpenppOAuthServerBundle:AccessToken')
-            ->findByClientAndToken($access_token, $client_id, $client_secret);
+        $user = $this->findByClientAndToken($access_token, $client_id, $client_secret);
         if(! $user ) {
             return [
                 'result' => false
@@ -60,4 +59,36 @@ class VerifyController extends Controller
             ];
         }
     }
+
+    private function findByClientAndToken($access_token, $client_id, $client_secret)
+    {
+        list($id, $random_id) = explode('_', $client_id);
+
+        if($id == null
+            || $random_id == null
+            || $client_secret == null)
+        {
+            return null;
+        }
+
+        $params = [
+            'token'       => $access_token
+            , 'id' => $id
+            , 'random_id' => $random_id
+            , 'secret'    => $client_secret
+        ];
+
+        $qb = $this->get('doctrine.orm.entity_manager')->createQueryBuilder()
+            ->select('fuu.id, oat.expiresAt')
+            ->from($this->getParameter('openpp_oauth_server.access_token_class') , 'oat')
+            ->innerJoin('oat.client', 'oc')
+            ->innerJoin('oat.user'  , 'fuu')
+            ->where('oat.token       = :token')
+            ->andwhere('oc.id        = :id')
+            ->andWhere('oc.randomId = :random_id')
+            ->andWhere('oc.secret    = :secret')
+            ->setParameters($params);
+        return $qb->getQuery()->getOneOrNullResult();
+    }
+
 }
