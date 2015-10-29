@@ -12,3 +12,9 @@ services:
         tags:
             - { name: kernel.event_listener, event: fos_oauth_server.pre_authorization_process, method: onPreAuthorizationProcess }
             - { name: kernel.event_listener, event: fos_oauth_server.post_authorization_process, method: onPostAuthorizationProcess }
+
+    openpp_oauth_server.api.controller.user:
+        class: Openpp\OAuthServerBundle\Controller\Api\UserController
+
+    openpp_oauth_server.api.controller.verify:
+        class: Openpp\OAuthServerBundle\Controller\Api\VerifyController
