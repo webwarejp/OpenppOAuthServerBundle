@@ -15,6 +15,10 @@ services:
 
     openpp_oauth_server.api.controller.user:
         class: Openpp\OAuthServerBundle\Controller\Api\UserController
+        calls:
+            - [setContainer, ["@service_container"]]
 
     openpp_oauth_server.api.controller.verify:
         class: Openpp\OAuthServerBundle\Controller\Api\VerifyController
+        calls:
+            - [setContainer, ["@service_container"]]

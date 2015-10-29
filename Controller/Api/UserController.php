@@ -2,12 +2,10 @@
 
 namespace Openpp\OAuthServerBundle\Controller\Api;
 
-use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Sonata\UserBundle\Model\UserInterface;
 use FOS\RestBundle\View\View;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
-//use Sonata\UserBundle\Controller\Api\UserController as BaseUserController;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
@@ -28,6 +26,8 @@ class UserController extends Controller
     public function getMeAction()
     {
         $tokenManager = $this->get('fos_oauth_server.access_token_manager');
+
+
         $accessToken = $tokenManager->findTokenByToken(
             $this->get('security.context')->getToken()->getToken()
         );
