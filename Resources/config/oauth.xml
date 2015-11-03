@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="openpp_oauth_server.oauth_event_listener.class">Openpp\OAuthServerBundle\EventListener\OAuthEventListener</parameter>
+        <parameter key="openpp_oauth_server.api.controller.user.class">Openpp\OAuthServerBundle\Controller\Api\UserController</parameter>
+        <parameter key="openpp_oauth_server.api.controller.verify.class">Openpp\OAuthServerBundle\Controller\Api\VerifyController</parameter>
+    </parameters>
+
+    <services>
+        <service id="openpp_oauth_server.oauth_event_listener" class="%openpp_oauth_server.oauth_event_listener.class%">
+            <tag name="kernel.event_listener" event="fos_oauth_server.pre_authorization_process" method="onPreAuthorizationProcess" />
+            <argument type="service" id="doctrine.orm.entity_manager" />
+        </service>
+
+        <service id="openpp_oauth_server.api.controller.user" class="%openpp_oauth_server.api.controller.user.class%">
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+
+        <service id="openpp_oauth_server.api.controller.verify" class="%openpp_oauth_server.api.controller.verify.class%">
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+    </services>
+</container>

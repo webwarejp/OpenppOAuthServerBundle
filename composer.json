@@ -1,23 +1,24 @@
 {
-  "name": "openpp/oauth-server-bundle",
-  "type": "symfony-bundle",
-  "description": "Symfony OpenppOAuthServerBundle",
-  "keywords": ["oauth", "oauth2", "server","openpp"],
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "webware,Inc."
+    "name": "openpp/oauth-server-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony OpenppOAuthServerBundle",
+    "keywords": ["oauth", "oauth2", "server", "openpp"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "webware,Inc."
+        }
+    ],
+    "require": {
+        "symfony/symfony": "~2.7",
+        "friendsofsymfony/oauth-server-bundle": "~1.4",
+        "friendsofsymfony/rest-bundle": "~1.7",
+        "sonata-project/admin-bundle": "dev-master",
+        "sonata-project/user-bundle": "dev-master",
+        "sonata-project/easy-extends-bundle": "~2.1",
+        "nelmio/api-doc-bundle": "~2.9"
+    },
+    "autoload": {
+        "psr-4": { "Openpp\\OAuthServerBundle\\": "" }
     }
-  ],
-  "require": {
-    "symfony/symfony": "~2.7",
-
-    "friendsofsymfony/oauth-server-bundle": "~1.4",
-    "friendsofsymfony/rest-bundle": "~1.7",
-    "sonata-project/admin-bundle": "dev-master",
-    "nelmio/api-doc-bundle": "~2.9"
-  },
-  "autoload": {
-    "psr-4": { "Openpp\\OAuthServerBundle\\": "" }
-  }
 }

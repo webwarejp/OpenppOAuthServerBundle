@@ -7,3 +7,8 @@ nbproject
 coverage
 composer.lock
 vendor
+
+# Eclipse
+.project
+.settings/
+.buildpath
