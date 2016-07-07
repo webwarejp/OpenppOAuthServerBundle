@@ -10,13 +10,13 @@
         }
     ],
     "require": {
-        "symfony/symfony": "~2.7",
-        "friendsofsymfony/oauth-server-bundle": "~1.4",
+        "symfony/symfony": "~2.8",
+        "friendsofsymfony/oauth-server-bundle": "~1.5",
         "friendsofsymfony/rest-bundle": "~1.7",
         "sonata-project/easy-extends-bundle": "~2.1",
-        "sonata-project/admin-bundle": "~2.4@dev",
-        "sonata-project/user-bundle": "~2.3@dev",
-        "nelmio/api-doc-bundle": "~2.9"
+        "sonata-project/admin-bundle": "^3.0",
+        "sonata-project/user-bundle": "^3.0",
+        "nelmio/api-doc-bundle": "^2.4"
     },
     "autoload": {
         "psr-4": { "Openpp\\OAuthServerBundle\\": "" }
