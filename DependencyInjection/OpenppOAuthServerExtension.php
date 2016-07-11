@@ -41,13 +41,24 @@ class OpenppOAuthServerExtension extends Extension implements PrependExtensionIn
            $container->setParameter('openpp_oauth_server.'.$key, $value);
         }
 
+        $this->configureClass($config, $container);
         $this->registerDoctrineMapping($config);
     }
 
     /**
      * @param array $config
+     * @param ContainerBuilder $container
      */
-    public function registerDoctrineMapping(array $config)
+    protected function configureClass($config, ContainerBuilder $container)
+    {
+        // admin configuration
+        $container->setParameter('openpp.oauth_server.admin.client.entity', $config['client_class']);
+    }
+
+    /**
+     * @param array $config
+     */
+    protected function registerDoctrineMapping(array $config)
     {
         $collector = DoctrineCollector::getInstance();
 
