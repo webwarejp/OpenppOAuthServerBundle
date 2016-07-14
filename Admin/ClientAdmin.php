@@ -52,7 +52,7 @@ class ClientAdmin extends Admin
     {
         $formMapper
             ->add('name')
-            ->add('redirectUris', 'sonata_type_native_collection', array('type' => 'url', 'allow_add' => true, 'allow_delete' => true, 'by_reference' => false))
+            ->add('redirectUris', 'sonata_type_native_collection', array('type' => 'text', 'allow_add' => true, 'allow_delete' => true, 'by_reference' => false))
             ->add('allowedGrantTypes', 'sonata_type_native_collection', array('type' => 'choice', 'allow_add' => true, 'allow_delete' => true, 'by_reference' => false
                 ,'options'  => array(
                     'choices'   => array(
