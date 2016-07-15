@@ -56,14 +56,15 @@ class ClientAdmin extends Admin
             ->add('allowedGrantTypes', 'sonata_type_native_collection', array('type' => 'choice', 'allow_add' => true, 'allow_delete' => true, 'by_reference' => false
                 ,'options'  => array(
                     'choices'   => array(
-                        OAuth2::GRANT_TYPE_AUTH_CODE                    => "Authorization Code Grant Flow"
-                        , OAuth2::GRANT_TYPE_IMPLICIT                   => "Implicit Grant Flow"
-                        , OAuth2::GRANT_TYPE_USER_CREDENTIALS           => "Resource Owner Password Credentials Grant Flow"
-                        , OAuth2::GRANT_TYPE_CLIENT_CREDENTIALS         => "Client Credentials Grant Flow"
-                        )
+                        OAuth2::GRANT_TYPE_AUTH_CODE                  => "Authorization Code Grant Flow",
+                        OAuth2::GRANT_TYPE_IMPLICIT                   => "Implicit Grant Flow",
+                        OAuth2::GRANT_TYPE_USER_CREDENTIALS           => "Resource Owner Password Credentials Grant Flow",
+                        OAuth2::GRANT_TYPE_CLIENT_CREDENTIALS         => "Client Credentials Grant Flow",
+                        OAuth2::GRANT_TYPE_REFRESH_TOKEN              => "Refresh Token"
                     )
                 )
-            );
+            )
+        );
     }
 
     /**
