@@ -8,7 +8,7 @@
         <field name="name"      type="string"   column="name" length="255" nullable="false" />
         <field name="private"   type="boolean"  column="private"           nullable="false">
             <options>
-                <option name="default">false</option>
+                <option name="default">0</option>
             </options>
         </field>
         <field name="createdAt" type="datetime" column="created_at"        nullable="false" />
